@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,100&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Manrope', 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --color-form-ink: #1a2137;
+  --color-form-cobalt: #3161f6;
+  --color-form-cobalt-soft: #dbe5ff;
+  --color-form-coral: #ff9866;
+  --color-form-paper: #fffaf2;
+  --color-form-sand: #e8ddd0;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply min-h-screen text-slate-900 antialiased;
+    background-color: #f3ede3;
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(49, 97, 246, 0.13), transparent 24%),
+      radial-gradient(circle at 86% 5%, rgba(255, 152, 102, 0.16), transparent 18%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(243, 237, 227, 0.94)),
+      linear-gradient(rgba(255, 255, 255, 0.38) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.38) 1px, transparent 1px);
+    background-size: auto, auto, auto, 28px 28px, 28px 28px;
+    background-position: center, center, center, center, center;
+  }
+
+  #app {
+    @apply min-h-screen;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply outline-none;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #9aa4b5;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  button:focus-visible,
+  [role='button']:focus-visible {
+    outline: 2px solid rgba(49, 97, 246, 0.28);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: rgba(49, 97, 246, 0.18);
+    color: #13204a;
+  }
+}
+
+@layer components {
+  .studio-panel {
+    @apply rounded-[36px] border border-white/75 bg-white/76 shadow-[0_36px_110px_-55px_rgba(26,33,55,0.34)] backdrop-blur-md;
+  }
+
+  .studio-paper {
+    @apply rounded-[30px] border border-[#eadfd3]/90 bg-white/92 shadow-[0_26px_72px_-56px_rgba(26,33,55,0.28)];
+  }
+
+  .studio-muted {
+    @apply rounded-[28px] border border-[#e9dfd4]/90 bg-[rgba(255,250,243,0.96)];
+  }
+
+  .blueprint-surface {
+    background-image:
+      radial-gradient(circle at top right, rgba(49, 97, 246, 0.1), transparent 26%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+  }
+
+  .glass-chip {
+    @apply rounded-full border border-white/70 bg-white/72 px-3 py-1 text-[0.72rem] font-semibold tracking-[0.18em] text-slate-500;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
